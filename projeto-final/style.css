@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 
 body{
-    padding: 0;
+    padding: 0; 
     margin: 0;
     color: #ffffff;
     font-family: 'Raleway', sans-serif;
@@ -18,8 +18,8 @@ body{
     align-items: center;
     justify-content: center;
     position: relative;
-    animation: backgroundTransition 6s ease-in-out infinite;
-}
+    animation: backgroundTransition 8s ease-in-out infinite;
+} 
 
 h1{
     text-transform: uppercase;
@@ -66,13 +66,6 @@ a:hover{
     }
 }
 
-.menu-itens{
-    color: #050404;
-}
-
-.menu-itens a {
-    color: #326932;
-}
 
 /*MEU HAMBURGUER*/
 
@@ -80,7 +73,7 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;    
-}
+} 
 
 .checkbox{
     height: 100px;
@@ -92,7 +85,7 @@ a:hover{
     justify-content: center;
     cursor: pointer;
     z-index: 9999;
-    transition: 400s ease-in-out 0;
+    transition: 400ms ease-in-out 0s;
 }
 
 .checkbox .trace {
@@ -119,12 +112,15 @@ a:hover{
     transform: rotate(0);
 }
 
+    
 #toggle {
-    display: none;
-}   
+display: none;
+}  
 
+ 
  /*MENU*/
- .menu {
+
+.menu {
     position: absolute;
     top: 28px;
     right: 30px;
@@ -134,10 +130,10 @@ a:hover{
     border-radius: 50%;
     box-shadow: 0px 0px 0px 0px #ffffff;
     z-index: -1;
-    transition: 400ms ease-in-out 0;
- }
+    transition: 400ms ease-in-out 0s;
+}
 
- .menu-itens{
+.menu-itens{
     position: fixed;
     top: 0;
     left: 0;
@@ -149,53 +145,134 @@ a:hover{
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transition: 400ms ease-in-out 0 ;
- }
+    transition: 400ms ease-in-out 0s ;
+}
 
- .menu-itens ul {
+.menu-itens ul {
     list-style-type: none;    
- }
+}
 
- .menu-itens ul li a {
+.menu-itens ul li a {
     margin: 10px 0;
     color: #2E1C2b;
     text-decoration:none;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-size: 40px;
- }
+}
 
  /*ANIMAÇÃO DO MEnU*/
 
- #toggle:checked + .checkbox .trace:nth-child(1) {
+#toggle:checked + .checkbox .trace:nth-child(1) {
     transform: rotate(45deg);
     background-color: #2E1C2b;
     top: 47px;
- }
+}
 
- #toggle:checked + .checkbox .trace:nth-child(2) {
+#toggle:checked + .checkbox .trace:nth-child(2) {
     transform: translateX(-100px);
     width: 30px;
     visibility: hidden;
     opacity: 0;
- }
+}
 
- #toggle:checked + .checkbox .trace:nth-child(3) {
+#toggle:checked + .checkbox .trace:nth-child(3) {
     transform: rotate(-45deg);
     background-color: #2E1C2b;
     top: 48px;
- }
+}
 
- #toggle:checked + .checkbox{
+#toggle:checked + .checkbox{
     background-color: #ffffff;    
- }
+}
 
- #toggle:checked ~ .menu {
+#toggle:checked ~ .menu {
     box-shadow: 0px 0px 0px 100vmax #ffffff;
     z-index: 1;
- }
+}
 
- #toggle:checked ~ .menu-itens {
+#toggle:checked ~ .menu-itens {
     visibility: visible;
     opacity: 1;
- }
+}
+
+/*CARD*/
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center ;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0 ;
+    background-image: url('./imagem1.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(27, 29, 18); 
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover > .card-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px; 
+}
